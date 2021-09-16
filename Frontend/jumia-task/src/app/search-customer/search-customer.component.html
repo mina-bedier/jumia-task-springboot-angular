@@ -1,0 +1,49 @@
+
+        <form (ngSubmit) ="onSubmit()">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <label class="mb-3 lead"  style="font-weight: bolder">Search By Country</label>
+                    <select [(ngModel)]="filterCustomer.countryName" data-style="bg-white rounded-pill px-4 py-3 shadow-sm "  class="form-select" name="filterCustomer.countryName">
+                        <option ></option>
+                        <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-6 mx-auto">
+                    <label class="mb-3 lead" style="font-weight: bolder">Search By Status</label>
+                    <select [(ngModel)]="filterCustomer.status" data-style="bg-white rounded-pill px-4 py-3 shadow-sm " class="form-select" name="filterCustomer.status">
+                        <option ></option>
+                        <option value="Valid">Valid</option>
+                        <option value="Not valid">Not Valid</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary btn-block" style="margin: 20px 510px ">Search</button>
+            </div>
+        </form>
+
+
+
+
+
+<h2>Customers</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Country</th>
+            <th>Country Code</th>
+            <th>Phone Number</th>
+            <th>Phone Number Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let customer of customers" >
+            <td> {{ customer.customerName }} </td>
+            <td> {{ customer.country }} </td>
+            <td> {{ customer.countryCode }} </td>
+            <td> {{ customer.phoneNumber }} </td>
+            <td> {{ customer.phoneStatus }} </td>
+        </tr>
+    </tbody>
+</table>
